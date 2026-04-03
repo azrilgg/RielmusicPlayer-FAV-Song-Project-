@@ -1,0 +1,275 @@
+/* ============================================
+   PRELOADER — GOD TIER (No Image)
+   ============================================ */
+.pl {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at 30% 50%, #0d0d1a 0%, #06060e 50%, #020208 100%);
+  overflow: hidden;
+}
+
+.pl-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pl-bg-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(138, 43, 190, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 243, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.pl-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+/* ——— Icon Area with Rings ——— */
+.pl-icon-area {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.pl-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+}
+
+.pl-ring--1 {
+  inset: 0;
+  border-color: rgba(255, 215, 0, 0.3);
+  border-top-color: rgba(255, 215, 0, 0.8);
+  animation: plRingSpin 3s linear infinite;
+}
+
+.pl-ring--2 {
+  inset: -12px;
+  border-color: rgba(0, 243, 255, 0.15);
+  border-bottom-color: rgba(0, 243, 255, 0.6);
+  animation: plRingSpin 4.5s linear infinite reverse;
+}
+
+.pl-ring--3 {
+  inset: -24px;
+  border-color: rgba(188, 19, 254, 0.1);
+  border-left-color: rgba(188, 19, 254, 0.4);
+  animation: plRingSpin 6s linear infinite;
+}
+
+@keyframes plRingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.pl-icon {
+  position: relative;
+  z-index: 3;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(188,19,254,0.1));
+  border: 1px solid rgba(255,215,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 30px rgba(255, 215, 0, 0.15),
+    inset 0 0 20px rgba(255, 215, 0, 0.05);
+}
+
+.pl-icon-note {
+  font-size: 2.5rem;
+  color: #fff;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+  animation: plNotePulse 2s ease-in-out infinite;
+}
+
+@keyframes plNotePulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); }
+  50% { filter: drop-shadow(0 0 35px rgba(255, 215, 0, 1)) drop-shadow(0 0 60px rgba(0, 243, 255, 0.3)); }
+}
+
+/* ——— Title ——— */
+.pl-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 11vw, 5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: clamp(3px, 1.8vw, 14px);
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.8));
+  line-height: 1.1;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.pl-letter {
+  display: inline-block;
+  will-change: transform, opacity;
+  background: linear-gradient(180deg, #ffffff 0%, #ffeaa7 15%, #d4af37 50%, #997300 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pl-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.75rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: clamp(3px, 1.5vw, 10px);
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px rgba(0, 243, 255, 0.8),
+    0 0 15px rgba(0, 243, 255, 0.6),
+    0 0 40px rgba(0, 243, 255, 0.3);
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.pl-letter-sub {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.pl-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.55rem, 2.5vw, 1rem);
+  letter-spacing: clamp(2px, 1.2vw, 6px);
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 35px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ——— Loading Bar ——— */
+.pl-bar-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 320px;
+}
+
+.pl-bar-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pl-bar-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #f6e27a, #00f3ff);
+  transform-origin: left center;
+  transform: scaleX(0);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5), 0 0 30px rgba(0, 243, 255, 0.2);
+  border-radius: 3px;
+}
+
+.pl-percent {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.55rem, 2vw, 0.7rem);
+  color: rgba(255, 215, 0, 0.6);
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE — ALL DEVICES
+   ============================================ */
+
+/* We now rely mostly on fluid clamp() units, these breakpoints only adjust spacing and icon sizes! */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .pl-icon-area { width: 110px; height: 110px; margin-bottom: 24px; }
+  .pl-ring--2 { inset: -8px; }
+  .pl-ring--3 { inset: -16px; }
+  .pl-icon { width: 64px; height: 64px; }
+  .pl-icon-note { font-size: 2rem; }
+  .pl-tagline { white-space: normal; line-height: 1.4; padding: 0 10px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .pl-icon-area { width: 90px; height: 90px; margin-bottom: 20px; }
+  .pl-ring--2 { inset: -6px; }
+  .pl-ring--3 { inset: -12px; }
+  .pl-icon { width: 52px; height: 52px; }
+  .pl-icon-note { font-size: 1.6rem; }
+  .pl-subtitle { margin-bottom: 10px; }
+  .pl-tagline { margin-bottom: 22px; }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .pl-icon-area { width: 75px; height: 75px; margin-bottom: 16px; }
+  .pl-icon { width: 44px; height: 44px; }
+  .pl-icon-note { font-size: 1.3rem; }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) {
+  .pl-icon-area {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+  }
+
+  .pl-ring--2 { inset: -5px; }
+  .pl-ring--3 { inset: -10px; }
+
+  .pl-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pl-icon-note {
+    font-size: 1.2rem;
+  }
+
+  .pl-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .pl-subtitle {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    margin-bottom: 6px;
+  }
+
+  .pl-tagline {
+    margin-bottom: 14px;
+    font-size: 0.6rem;
+  }
+
+  .pl-bar-area {
+    max-width: 180px;
+  }
+}

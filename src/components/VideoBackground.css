@@ -1,0 +1,31 @@
+.video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.video-bg--active {
+  opacity: 1;
+}
+
+.video-bg-el {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1.05);
+  filter: brightness(0.7) contrast(1.1) saturate(1.15);
+  will-change: transform;
+}
+
+.video-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(6,6,14,0.2) 0%, rgba(6,6,14,0.7) 100%),
+    linear-gradient(180deg, rgba(6,6,14,0.3) 0%, transparent 30%, transparent 70%, rgba(6,6,14,0.6) 100%);
+  pointer-events: none;
+}

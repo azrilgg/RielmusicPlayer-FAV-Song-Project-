@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.env
+.DS_Store
+dist-ssr/
+*.local
+
+# Ignore massive media files but keep folders
+public/**/*.mp4
+public/**/*.mp3
+public/**/*.wav
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.png
+public/**/*.gif
+public/**/*.webp
+*.mp4
+*.mp3
+*.jpg
+*.png

@@ -1,0 +1,217 @@
+.audio-controls {
+  width: 100%;
+}
+
+/* ——— Progress ——— */
+.ac-progress-section {
+  margin-bottom: 22px;
+}
+
+.ac-progress-bar-wrap {
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.ac-progress-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ac-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-pink), var(--purple));
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.1s linear;
+}
+
+.ac-progress-glow {
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px #fff, 0 0 20px var(--neon-pink);
+}
+
+.ac-time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+/* ——— Main Buttons ——— */
+.ac-main-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.ac-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-smooth);
+  color: #fff;
+}
+
+.ac-btn:hover {
+  color: var(--neon-blue);
+  transform: scale(1.15);
+}
+
+.ac-btn--sm {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.ac-btn--sm:hover {
+  border-color: rgba(0,243,255,0.3);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.ac-btn--play {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #000 !important;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.ac-btn--play:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255,215,0,0.6), 0 0 60px rgba(255,215,0,0.2);
+  color: #000 !important;
+}
+
+/* ——— Secondary ——— */
+.ac-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: rgba(0,0,0,0.15);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+}
+
+.ac-btn--tiny {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.ac-btn--tiny:hover {
+  color: var(--neon-blue);
+}
+
+.ac-btn--active {
+  color: var(--neon-blue) !important;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.ac-slider-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ac-slider-icon {
+  color: var(--text-muted);
+}
+
+.ac-slider {
+  -webkit-appearance: none;
+  width: 70px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.15); /* Fallback */
+  outline: none;
+  cursor: pointer;
+}
+
+.ac-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255,255,255,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ac-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.3);
+}
+
+.ac-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 8px rgba(255,255,255,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ac-slider:hover::-moz-range-thumb {
+  transform: scale(1.3);
+}
+
+/* Specific glows */
+.ac-slider--blue::-webkit-slider-thumb {
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--neon-blue);
+}
+.ac-slider--blue::-moz-range-thumb {
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--neon-blue);
+}
+
+.ac-slider--pink::-webkit-slider-thumb {
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--neon-pink);
+}
+.ac-slider--pink::-moz-range-thumb {
+  box-shadow: 0 0 8px #fff, 0 0 16px var(--neon-pink);
+}
+
+.ac-speed-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.ac-speed-val {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  color: var(--gold);
+  min-width: 28px;
+}
+
+@media (max-width: 480px) {
+  .ac-main-btns { gap: 20px; }
+  .ac-btn--sm { width: 40px; height: 40px; }
+  .ac-btn--play { width: 58px; height: 58px; }
+  .ac-secondary { gap: 10px; padding: 10px 12px; }
+  .ac-slider { width: 55px; }
+}

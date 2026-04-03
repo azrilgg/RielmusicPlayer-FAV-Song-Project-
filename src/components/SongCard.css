@@ -1,0 +1,211 @@
+/* ============================================
+   SONG CARD — GOD TIER GLASSMORPHIC
+   ============================================ */
+.song-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.song-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 215, 0, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Shimmer sweep on hover */
+.song-card-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 215, 0, 0.04) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 100%
+  );
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.song-card:hover .song-card-shimmer {
+  left: 100%;
+}
+
+/* Top highlight edge for glass effect */
+.song-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Number badge */
+.song-card-number {
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.song-card:hover .song-card-number {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.15);
+}
+
+/* Album art */
+.song-card-art-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.song-card-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.song-card:hover .song-card-art {
+  transform: scale(1.12);
+}
+
+.song-card-art-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.song-card:hover .song-card-art-overlay {
+  opacity: 1;
+}
+
+/* Info */
+.song-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.song-card:hover .song-card-title {
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+}
+
+.song-card-artist {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.song-card-album {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.62rem;
+  color: var(--neon-blue);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.15);
+}
+
+/* Bottom glow on hover */
+.song-card-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 30px;
+  background: radial-gradient(ellipse, rgba(255, 215, 0, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.song-card:hover .song-card-glow {
+  opacity: 1;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 480px) {
+  .song-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .song-card-art-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .song-card-number {
+    min-width: 26px;
+    height: 26px;
+    font-size: 0.58rem;
+    border-radius: 6px;
+  }
+
+  .song-card-title {
+    font-size: 0.85rem;
+  }
+
+  .song-card-artist {
+    font-size: 0.72rem;
+  }
+}
